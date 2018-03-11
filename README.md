@@ -1,1 +1,1 @@
-# PINK
+# PINK учебный проект от htmlacademy

@@ -5,6 +5,10 @@
   "description": "Личный проект",
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.0.x",
+    "cli": ">=1.0.0",
+    "sshpk": ">=1.13.2",
+    "merge": ">=1.2.1",
+    "deep-extend": ">=0.5.1",
     "autoprefixer": "9.7.0",
     "grunt": "1.0.4",
     "grunt-browser-sync": "2.2.0",

@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             style: {
                 options: {
                     processors: [require("autoprefixer")({
-                        browsers: ["last 2 versions"]
+                        overrideBrowserslist: ["last 2 versions"]
                     })]
                 },
                 src: "build/css/*.css"
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
         imagemin: {
             images: {
                 options: {
-                    opitimizationLabel: 3
+                    optimizationLevel: 3
                 },
                 files: [{
                     expand: true,
@@ -79,7 +79,9 @@ module.exports = function(grunt) {
             symbols: {
                 files: [{
                     expand: true,
-                    src: ["build/img/icons/*.svg"]
+                    cwd: "build/img/svg-sprite",
+                    src: ["*.svg"],
+                    dest: "build/img/svg-sprite"
                 }]
             }
         },
@@ -92,12 +94,19 @@ module.exports = function(grunt) {
             },
             symbols: {
                 files: {
-                    "build/img/symbols.svg": ["img/icons/*.svg"]
+                    "build/img/sprite-svg.svg": ["img/svg-sprite/*.svg"]
                 }
             }
         },
 
         copy: {
+            html: {
+                files: [{
+                    expand: true,
+                    src: ["*.html"],
+                    dest: "build"
+                }]
+            },
             build: {
                 files: [{
                     expand: true,
@@ -105,14 +114,6 @@ module.exports = function(grunt) {
                     dest: "build"
                 }]
             }
-        },
-
-        html: {
-            files: [{
-                expand: true,
-                src: ["*.html"],
-                dest: "build"
-            }]
         },
 
 
@@ -131,6 +132,4 @@ module.exports = function(grunt) {
         "symbols",
         "imagemin"
     ]);
-}
-
-;
+};

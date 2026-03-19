@@ -5,11 +5,9 @@
   "description": "Личный проект",
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.0.x",
-    "cli": ">=1.0.0",
-    "sshpk": ">=1.13.2",
-    "merge": ">=1.2.1",
-    "deep-extend": ">=0.5.1",
     "autoprefixer": "9.7.0",
+    "cli": ">=1.0.0",
+    "deep-extend": ">=0.5.1",
     "grunt": "1.0.4",
     "grunt-browser-sync": "2.2.0",
     "grunt-contrib-clean": "^2.0.0",
@@ -21,7 +19,9 @@
     "grunt-postcss": "0.9.0",
     "grunt-svgmin": "^6.0.0",
     "grunt-svgstore": "^2.0.0",
-    "load-grunt-tasks": "^5.1.0"
+    "load-grunt-tasks": "^5.1.0",
+    "merge": ">=1.2.1",
+    "sshpk": ">=1.13.2"
   },
   "scripts": {
     "test": "editorconfig-cli",
@@ -37,11 +37,6 @@
     "less/**/*.less"
   ],
   "engines": {
-    "node": "6.10"
-  },
-  "dependencies": {
-    "handlebars": "^4.4.5",
-    "htmlhint-loader": "^1.3.1",
-    "uglify-js": "^3.6.4"
+    "node": ">=6.10"
   }
 }

@@ -1,4 +1,7 @@
-function handleMenu(menu, togglers) {
+function handleMenu(menu, header, togglers) {
+  if (!menu || !header || !togglers.length) {
+    return;
+  }
 
 
   function onToggleClick(event) {
@@ -25,19 +28,27 @@ function handleMenu(menu, togglers) {
   var menu = document.getElementById('nav');
   var header = document.getElementById('header');
 
+  if (!header || !menu) {
+    return;
+  }
+
   header.classList.add('page-header--js');
   header.classList.remove('page-header--active');
   menu.classList.add('navigation--closed');
   menu.classList.add('navigation--positioned');
-  handleMenu(menu, btns);
+  handleMenu(menu, header, btns);
 })();
 
 
 function initMap() {
   var map = document.getElementById('map');
+  if (!map || !window.google || !window.google.maps) {
+    return;
+  }
+
   var latitude = map.getAttribute('data-latitude');
   var longitude = map.getAttribute('data-longitude');
-  var centerLatLng = new google.maps.LatLng(latitude,longitude);
+  var centerLatLng = new google.maps.LatLng(latitude, longitude);
   // var markerLatLng = new google.maps.LatLng(59.938770, 30.323075);
 
   var mapOptions = {
@@ -46,7 +57,7 @@ function initMap() {
     center: centerLatLng,
     scrollwheel: false, // false, скролл отключен.
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
+  };
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
@@ -55,4 +66,4 @@ function initMap() {
     title: 'HTML Academy'
   });
   marker.setMap(map);
-};
+}
